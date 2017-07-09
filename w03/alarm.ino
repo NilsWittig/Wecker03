@@ -66,31 +66,49 @@ int *getAlarm(long checksum){   //Takes an Alarm (as long number) and returns an
   return ar;
 }
 String htmlAlarms(){    //builds a html string to be append to the website string wich contains info about all Alarms and the ability to edit them
+  
   String ahtml = "";
+  ahtml += "<UL>";
   for (SimpleList<long>::iterator itr = alarms.begin(); itr != alarms.end();){
     int *x = getAlarm(*itr);
-    ahtml += "<p>";
+    ahtml += "<LI>";
+    //ahtml += "<p>";
     ahtml += "<form>";
     ahtml += "<form action=\"AlarmMod.asp\" method=\"get\">";
-    ahtml += "#### ";
+    //ahtml += "#### ";
+    if(x[0] < 10){
+      ahtml += "0";
+    }
     ahtml += x[0];
     ahtml += ":";
+    if(x[1] < 10){
+      ahtml += "0";
+    }
     ahtml += x[1];
-    ahtml += ", Song: ";
-    ahtml += x[2];
-    ahtml += ", Aktiv?: ";
-    ahtml += x[3];
-    ahtml += " ####";
+    //ahtml += ", Song: ";
+    //ahtml += x[2];
+    ahtml += ", " + SONGS[x[2] - 1] + ", ";
+    int len = SONGS[x[2] - 1].length();
+    for(int space = 0; space < 30 - len; space++){
+      ahtml += "&ensp;";
+    }
+    if(x[3] == 0){
+      ahtml += "Inaktiv ";
+    }else{
+      ahtml += "Aktiv &ensp;";
+    }
+    //ahtml += " ####";
     ahtml += "<input type=\"number\" min=\"0\" max=\"1\" name=\"del";
     ahtml += (*itr);
     ahtml += "\" value=\"Del\" >";
     ahtml += "<input type=\"submit\" value=\"Toggle/Delete\">";
     ahtml += "</form>";
-    ahtml += "</p>";
+    //ahtml += "</p>";
     free(x); x=NULL;
     ++itr;
   }
   yield();
+  ahtml += "</UL>";
   return ahtml;
 }
 bool activeAlarms(){    //Checks if at least one Alarm in the list of Alarms is active

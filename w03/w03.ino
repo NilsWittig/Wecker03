@@ -31,7 +31,29 @@ volatile int db_sleep = 0;
 
 int dbg = 0;
 
+int SONGCOUNT = 18;
 String SONGINFO = "";
+
+String SONGS[] = {
+  "The Package",
+  "Moon",
+  "Agostina",
+  "Piano Lessons",
+  "Dreams",
+  "Fight",
+  "Grand Canyon",
+  "Night",
+  "Deep Peace",
+  "The Blizzard",
+  "Horizons",
+  "Terminal",
+  "Earthrise",
+  "Away",
+  "Greetings",
+  "Fadeaway",
+  "A Daisy Through Concrete",
+  "A Pillow Of Winds"
+};
 
 //######################### Alarm handling variables  #############################
 SimpleList<long> alarms; //a list of Alarms, an Alarm is a long number calculated as such: (hour * 10^6) + (minute * 10^4) + (song * 10) + active
@@ -136,7 +158,9 @@ wifiManager.autoConnect("ESP", "www");
   WECKER += "<form action=\"WeckerForm.asp\" method=\"get\">";
   WECKER += "<input type=\"number\" min=\"0\" max=\"23\" name=\"hour\" value=\"Hour\" >";
   WECKER += "<input type=\"number\" min=\"0\" max=\"59\" name=\"minute\" value=\"Minute\" >";
-  WECKER += "<input type=\"number\" min=\"1\" max=\"18\" name=\"song\" value=\"Song\" >"; //Remember Song count!!!
+  WECKER += "<input type=\"number\" min=\"1\" max=\"";
+  WECKER += SONGCOUNT;
+  WECKER += "\" name=\"song\" value=\"Song\" >"; //Remember Song count!!!
   WECKER += "<input type=\"number\" min=\"0\" max=\"1\" name=\"active\" value=\"Active?\" >";
   WECKER += "<input type=\"submit\" value=\"Abschicken\">";
   WECKER += "</form>";
@@ -144,24 +168,31 @@ wifiManager.autoConnect("ESP", "www");
   WECKER += "</p>";
 
   SONGINFO += "<p>";
-  SONGINFO += "01-The Package<br>";
-  SONGINFO += "02-Moon<br>";
-  SONGINFO += "03-Agostina<br>";
-  SONGINFO += "04-Piano Lessons<br>";
-  SONGINFO += "05-Dreams<br>";
-  SONGINFO += "06-Fight<br>";
-  SONGINFO += "07-Grand Canyon<br>";
-  SONGINFO += "08-Night<br>";
-  SONGINFO += "09-Deep Peace<br>";
-  SONGINFO += "10-The Blizzard<br>";
-  SONGINFO += "11-Horizons<br>";
-  SONGINFO += "12-Terminal<br>";
-  SONGINFO += "13-Earthrise<br>";
-  SONGINFO += "14-Away<br>";
-  SONGINFO += "15-Greetings<br>";
-  SONGINFO += "16-Fadeaway<br>";
-  SONGINFO += "17-A Daisy Through Concrete<br>";
-  SONGINFO += "18-A Pillow Of Winds<br>";
+  SONGINFO += "<OL>";
+
+  for(int si = 0; si < SONGCOUNT; si++){
+    SONGINFO += "<LI>" + SONGS[si] + "<br>";
+  }
+//  SONGINFO += "01-The Package<br>";
+//  SONGINFO += "02-Moon<br>";
+//  SONGINFO += "03-Agostina<br>";
+//  SONGINFO += "04-Piano Lessons<br>";
+//  SONGINFO += "05-Dreams<br>";
+//  SONGINFO += "06-Fight<br>";
+//  SONGINFO += "07-Grand Canyon<br>";
+//  SONGINFO += "08-Night<br>";
+//  SONGINFO += "09-Deep Peace<br>";
+//  SONGINFO += "10-The Blizzard<br>";
+//  SONGINFO += "11-Horizons<br>";
+//  SONGINFO += "12-Terminal<br>";
+//  SONGINFO += "13-Earthrise<br>";
+//  SONGINFO += "14-Away<br>";
+//  SONGINFO += "15-Greetings<br>";
+//  SONGINFO += "16-Fadeaway<br>";
+//  SONGINFO += "17-A Daisy Through Concrete<br>";
+//  SONGINFO += "18-A Pillow Of Winds<br>";
+
+  SONGINFO += "</UL>";
   SONGINFO += "</p>";
   //########################## start mdns and authentication service  ############################################################
   //if (mdns.begin("esp8266", WiFi.localIP())) {} //start mdns
@@ -196,7 +227,9 @@ wifiManager.autoConnect("ESP", "www");
       mins_s.toCharArray(mins, sizeof(mins_s));
       songs_s.toCharArray(songs, sizeof(songs_s));
       activ_s.toCharArray(activ, sizeof(activ_s));
+      if(atoi(songs) != 0){
       newAlarm(atoi(hours), atoi(mins), atoi(songs), atoi(activ));
+      }
     }
     if((server.args() == 1) && (arguments.substring(0,3) == "del")){  //check for deleted or toggled Alarm
       String alar = arguments.substring(3);
