@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="680dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/alarm0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/time0"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time0_str"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner0"
+                android:layout_width="260dp"
+                android:layout_height="match_parent" />
+
+            <Switch
+                android:id="@+id/switch0"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:checked="@bool/enable0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/alarm1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time1_str"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="260dp"
+                android:layout_height="match_parent" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:checked="@bool/enable1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/alarm2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/time2"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time2_str"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="260dp"
+                android:layout_height="match_parent" />
+
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:checked="@bool/enable2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/alarm3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/time3"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time3_str"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="260dp"
+                android:layout_height="match_parent" />
+
+            <Switch
+                android:id="@+id/switch3"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:checked="@bool/enable3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/alarm4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/time4"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time4_str"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="260dp"
+                android:layout_height="match_parent" />
+
+            <Switch
+                android:id="@+id/switch4"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:checked="@bool/enable4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ippart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ip"
+                android:layout_width="310dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/ip" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:drawable/stat_notify_sync" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/songs"
+            android:layout_width="match_parent"
+            android:layout_height="109dp"
+            android:layout_weight="0.4"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

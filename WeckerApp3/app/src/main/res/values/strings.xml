@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">WeckerApp3</string>
+
+
+    <string name="ip">192.168.0.115</string>
+
+
+    <string name="time0_str">00:00</string>
+    <integer name="time0_hh">00</integer>
+    <integer name="time0_mm">00</integer>
+    <bool name="enable0">false</bool>
+    <integer name="song0">0</integer>
+
+    <string name="time1_str">00:00</string>
+    <integer name="time1_hh">00</integer>
+    <integer name="time1_mm">00</integer>
+    <bool name="enable1">false</bool>
+    <integer name="song1">0</integer>
+
+    <string name="time2_str">00:00</string>
+    <integer name="time2_hh">00</integer>
+    <integer name="time2_mm">00</integer>
+    <bool name="enable2">false</bool>
+    <integer name="song2">0</integer>
+
+    <string name="time3_str">00:00</string>
+    <integer name="time3_hh">00</integer>
+    <integer name="time3_mm">00</integer>
+    <bool name="enable3">false</bool>
+    <integer name="song3">0</integer>
+
+    <string name="time4_str">00:00</string>
+    <integer name="time4_hh">00</integer>
+    <integer name="time4_mm">00</integer>
+    <bool name="enable4">false</bool>
+    <integer name="song4">0</integer>
+
+
+
+</resources>
